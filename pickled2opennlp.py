@@ -25,7 +25,7 @@ for words in pickleExport: # sentence
         if taggedWord[1] == 'O':
             # Not part of address
             if lastWasInside:
-               sentence += taggedWord[0][0] + ' <END> ' 
+               sentence += ' <END> ' + taggedWord[0][0] + ' '
             else:
                 sentence += taggedWord[0][0] + ' '
             lastWasInside = False
