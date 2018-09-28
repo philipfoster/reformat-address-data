@@ -1,7 +1,8 @@
-import pickle
-from pprint import pprint
+# This program will convert a pickled dataset from https://onethinglab.com/2018/03/05/extracting-addresses-from-text/ into
+# a format suitable to be imported for OpenNLP to train a TokenNameFinderModel
 
-# Data source: https://onethinglab.com/2018/03/05/extracting-addresses-from-text/
+import pickle
+
 file = open("IOB_tagged_addresses.pkl", "rb")
 
 # load pickle file into an array
@@ -10,7 +11,6 @@ pickleExport.append(pickle.load(file))
 pickleExport = pickleExport[0]
 
 file.close()
-
 
 sentences = []
 
@@ -38,7 +38,7 @@ for words in pickleExport: # sentence
     sentences.append(sentence)
 
 
-file = open('opennlp-converted.txt', 'w')
+file = open('train_set.txt', 'w')
 for s in sentences:
     ascii = s.encode('ascii', 'ignore')
     file.write('%s\n' % ascii)
