@@ -1,5 +1,9 @@
 # This program will convert a pickled dataset from https://onethinglab.com/2018/03/05/extracting-addresses-from-text/ into
 # a format suitable to be imported for OpenNLP to train a TokenNameFinderModel
+#
+# Note: The output isn't *quite* suitable to be used directly. The easiest way to fix this is to use a find-and-replace tool built into
+# your text editor, and replace the following regex with an empty string: (^b('|"))|(("|')$)|`|''
+
 
 import pickle
 
